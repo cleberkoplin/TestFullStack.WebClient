@@ -1,0 +1,22 @@
+<mat-card>
+    <form (submit)="submit($event)">
+      <div class="row">
+        <mat-form-field>
+            <input matInput placeholder="Entre com seu usuário" [formControl]="username" required>
+            <mat-error *ngIf="username.invalid">{{getErrorMessageUsername()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field>
+            <input matInput type="password" placeholder="Entre com a senha" [formControl]="password" required>
+            <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+          <button mat-button>Entrar</button>
+      </div>
+      <div class="row">
+        Não tem cadastro? &nbsp;<a href="#">Registre-se</a>.
+      </div>
+    </form>
+</mat-card>
