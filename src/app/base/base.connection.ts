@@ -11,12 +11,12 @@ export abstract class BaseConnection {
     constructor(private http: HttpClient){}
 
     get(method: string) : Observable<any>{  
-        return this.http.get(URL_API + '/api/'+ method)
+        return this.http.get(URL_API + '/'+ method)
         .pipe(map(res => res), catchError(ErrorHandler.handleError));
     }
 
     post(method: string, object: JSON): Observable<any>{
-        return this.http.post(URL_API + '/api/' + method, object)
+        return this.http.post(URL_API + '/' + method, object)
         .pipe(map(res => res), catchError(ErrorHandler.handleError));
     }
 }

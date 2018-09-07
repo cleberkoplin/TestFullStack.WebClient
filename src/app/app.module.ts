@@ -11,13 +11,18 @@ import { LoginComponent } from './components/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatFormFieldModule, MatInputModule, MatCardModule} from '@angular/material';
+import { RouterModule } from '@angular/router';
+import { RegistrationComponent } from './components/registration/registration.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent
   ],
   entryComponents: [LoginComponent],
   imports: [
@@ -29,7 +34,10 @@ import { MatFormFieldModule, MatInputModule, MatCardModule} from '@angular/mater
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    RouterModule.forRoot([
+      { path: "", component: LoginComponent}
+    ])
   ],
   exports: [
     MatFormFieldModule,

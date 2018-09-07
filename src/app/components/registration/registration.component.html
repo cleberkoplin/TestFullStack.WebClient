@@ -1,0 +1,36 @@
+<form (submit)="submit($event)" class="p-5">
+    <div class="row">
+        <mat-form-field>
+            <input matInput placeholder="Nome Completo" [formControl]="name" required>
+            <mat-error *ngIf="name.invalid">{{getErrorMessageName()}}</mat-error>
+        </mat-form-field>
+      </div>
+  <div class="row">
+    <mat-form-field>
+        <input matInput placeholder="Usuário" [formControl]="username" required>
+        <mat-error *ngIf="username.invalid">{{getErrorMessageUsername()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field>
+        <input matInput type="password" placeholder="Senha" [formControl]="password" required>
+        <mat-error *ngIf="password.invalid">{{getErrorMessagePassword()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field>
+        <input matInput type="password" #confirm placeholder="Senha" [formControl]="confirmPassword" required 
+        (input)="onInput($event.target.value)">
+        <mat-error *ngIf="confirmPassword.invalid">{{getErrorMessageConfirmPassword()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field>
+        <input matInput type="email" #confirm placeholder="Email" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorEmail()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row">
+      <button mat-button>Registrar</button>
+  </div>
+</form>

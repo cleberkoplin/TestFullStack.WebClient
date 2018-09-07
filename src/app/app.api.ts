@@ -1,1 +1,1 @@
-export const URL_API = 'https://testfullstackckoplin.azurewebsites.net';
+export const URL_API = 'https://localhost:44325';
