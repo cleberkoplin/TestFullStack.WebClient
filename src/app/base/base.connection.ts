@@ -19,4 +19,9 @@ export abstract class BaseConnection {
         return this.http.post(URL_API + '/' + method, object)
         .pipe(map(res => res), catchError(ErrorHandler.handleError));
     }
+
+    put(method: string, object: JSON): Observable<any>{
+        return this.http.put(URL_API + '/' + method, object)
+        .pipe(map(res => res), catchError(ErrorHandler.handleError));
+    }
 }

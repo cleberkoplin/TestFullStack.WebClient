@@ -11,11 +11,12 @@ import {HttpModule} from '@angular/http';
 import { LoginComponent } from './components/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatFormFieldModule, MatInputModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule} from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatSelectModule, MatDividerModule} from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { NewproductComponent } from './components/newproduct/newproduct.component';
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { ChangeProductComponent } from './components/change-product/change-product.component';
 
 
 
@@ -26,7 +27,8 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     HomeComponent,
     LoginComponent,
     RegistrationComponent,
-    NewproductComponent
+    NewproductComponent,
+    ChangeProductComponent
   ],
   entryComponents: [LoginComponent],
   imports: [
@@ -43,6 +45,8 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     MatIconModule,
     MatButtonModule,
     CurrencyMaskModule,
+    MatSelectModule,
+    MatDividerModule,
     RouterModule.forRoot([
       { path: "", component: LoginComponent}
     ])

@@ -1,0 +1,33 @@
+<mat-form-field>
+  <mat-select placeholder="Escolha um Produto" [(ngModel)]="selectedProduct" (selectionChange)="loadProductForm($event)" >
+    <mat-option *ngFor="let product of productList" [value]="product">
+      {{product.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-divider></mat-divider>
+
+<form [formGroup]="editProductForm" (submit)="submit($event)" class="p-5">
+    <input type="hidden" [formControl]="id" />
+    <div class="row">
+      <mat-form-field>
+          <input matInput placeholder="Nome" [formControl]="name" required maxlength="100">
+          <mat-error *ngIf="name.invalid">{{getErrorMessageName()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field>
+          <input matInput placeholder="Descrição" [formControl]="description" maxlength="250">
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field>
+          <input matInput currencyMask placeholder="Valor" [formControl]="price" required [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+      </mat-form-field>
+    </div>
+    <div class="row">
+        <button mat-button type="submit">Salvar</button>
+        <button mat-button type="button" (click)="delete();">Excluir</button>
+    </div>
+  </form>

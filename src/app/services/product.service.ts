@@ -15,4 +15,17 @@ export class ProductService extends BaseConnection{
     save(product: Product) : Observable<any>{
         return this.post("products", JSON.parse(JSON.stringify(product)));
     }
+
+    update(product: Product) : Observable<any>{
+        return this.put("products/"+ product.Id, JSON.parse(JSON.stringify(product)));
+    }
+
+    remove(id: string) : Observable<any>{
+        return this.post("products/"+ id);
+    }
+
+    getAll() : Observable<any>{
+        var res = this.get("products/all");
+        return res;
+    }
 }
