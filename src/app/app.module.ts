@@ -5,14 +5,17 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AuthService } from './services/auth.service';
+import { ProductService } from './services/product.service';
 import { Http } from '@angular/http';
 import {HttpModule} from '@angular/http';
 import { LoginComponent } from './components/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatFormFieldModule, MatInputModule, MatCardModule} from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule} from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { NewproductComponent } from './components/newproduct/newproduct.component';
+import { CurrencyMaskModule } from "ng2-currency-mask";
 
 
 
@@ -22,7 +25,8 @@ import { RegistrationComponent } from './components/registration/registration.co
     HeaderComponent,
     HomeComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    NewproductComponent
   ],
   entryComponents: [LoginComponent],
   imports: [
@@ -35,6 +39,10 @@ import { RegistrationComponent } from './components/registration/registration.co
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    CurrencyMaskModule,
     RouterModule.forRoot([
       { path: "", component: LoginComponent}
     ])
@@ -46,6 +54,7 @@ import { RegistrationComponent } from './components/registration/registration.co
   providers: [
     {provide: LOCALE_ID, useValue: 'pt-BR'},
     AuthService,
+    ProductService,
     Http
   ],
   bootstrap: [AppComponent]

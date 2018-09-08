@@ -1,0 +1,21 @@
+<form [formGroup]="newProductForm" (submit)="submit($event)" class="p-5">
+  <div class="row">
+    <mat-form-field>
+        <input matInput placeholder="Nome" [formControl]="name" required maxlength="100">
+        <mat-error *ngIf="name.invalid">{{getErrorMessageName()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field>
+        <input matInput placeholder="Descrição" [formControl]="description" maxlength="250">
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field>
+        <input matInput currencyMask placeholder="Valor" [formControl]="price" required [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+    </mat-form-field>
+  </div>
+  <div class="row">
+      <button mat-button>Salvar</button>
+  </div>
+</form>

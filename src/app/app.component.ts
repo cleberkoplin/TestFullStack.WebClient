@@ -21,6 +21,10 @@ export class AppComponent {
     
   }
 
+  showHome(){
+    return (localStorage != null && localStorage.getItem("token") != null)
+  }
+
   showRegister(){
      this.register = true;
   }

@@ -27,22 +27,52 @@
       <app-header></app-header>
     </div>
     <div class="content-wrapper">
-      <mat-card class="panel-fit-center">
-        <div *ngIf="!register">
-          <app-login></app-login>
 
-          <div class="row pl-5">
-            Não tem cadastro? &nbsp;<a href="#" (click)="showRegister($event)">Registre-se</a>.
+      <div *ngIf="showHome()">
+          <button mat-button [matMenuTriggerFor]="products">Produtos</button>
+          <mat-menu #products="matMenu">
+            <button mat-menu-item (click)="contentBody = 'newProducts'">Novo Produto</button>
+            <button mat-menu-item (click)="contentBody = 'changeProducts'">Editar/Excluir Produto</button>
+          </mat-menu>
+
+          <button mat-button [matMenuTriggerFor]="orders">Pedidos</button>
+          <mat-menu #orders="matMenu">
+            <button mat-menu-item (click)="contentBody = 'newOrder'">Novo Pedido</button>
+            <button mat-menu-item (click)="contentBody = 'searchOrder'">Pesquisar Pedido</button>
+          </mat-menu>
+
+          <div *ngIf="contentBody == 'newProducts'">
+            <app-newproduct></app-newproduct>
           </div>
-        </div>
-        <div *ngIf="register">
-          <app-registration></app-registration>
+          <div *ngIf="contentBody == 'changeProducts'">
+            Editar/Excluir Produto
+          </div>
+          <div *ngIf="contentBody == 'newOrder'">
+            Novo Pedido
+          </div>
+          <div *ngIf="contentBody == 'searchOrder'">
+              Pesquisar Pedido
+          </div>
+      </div>  
 
-          <div class="row pl-5">
-              <a href="#" (click)="hideRegister($event)">Voltar</a>.
+      <div *ngIf="!showHome()">
+        <mat-card class="panel-fit-center">
+          <div *ngIf="!register">
+            <app-login></app-login>
+
+            <div class="row pl-5">
+              Não tem cadastro? &nbsp;<a href="#" (click)="showRegister($event)">Registre-se</a>.
             </div>
-        </div>
-      </mat-card>
+          </div>
+          <div *ngIf="register">
+            <app-registration></app-registration>
+
+            <div class="row pl-5">
+                <a href="#" (click)="hideRegister($event)">Voltar</a>.
+              </div>
+          </div>
+        </mat-card>
+      </div>
       
     </div>
     
