@@ -21,7 +21,7 @@ export class ProductService extends BaseConnection{
     }
 
     remove(id: string) : Observable<any>{
-        return this.post("products/"+ id);
+        return this.post("products/"+ id, null);
     }
 
     getAll() : Observable<any>{

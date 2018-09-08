@@ -1,0 +1,28 @@
+
+<form [formGroup]="newOrderForm" >
+  <div class="row">
+      <mat-form-field>
+        <mat-select placeholder="Escolha um Produto" [formControl]="selectedProduct"  (selectionChange)="loadProductForm($event)" >
+          <mat-option *ngFor="let product of productList" [value]="product">
+            {{product.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  </div>
+  <div class="row">
+      <mat-form-field>
+          <input matInput currencyMask placeholder="Valor" [formControl]="price" disabled [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+      </mat-form-field>
+    </div>
+  <div class="row">
+    <mat-form-field>
+        <input matInput placeholder="Informe a Quantidade" [formControl]="quantity" type="number">
+    </mat-form-field>
+  </div>
+  <div class="row">
+      <button mat-button type="button" (click)="addProduct();">Adicionar Produto</button>
+  </div>
+</form>
+<div class="row">
+    <button mat-button type="button" (click)="doOrder();">Finalizar Pedido</button>
+</div>

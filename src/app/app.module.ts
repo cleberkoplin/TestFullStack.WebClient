@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { ProductService } from './services/product.service';
+import { OrderService } from './services/order.service';
 import { Http } from '@angular/http';
 import {HttpModule} from '@angular/http';
 import { LoginComponent } from './components/login/login.component';
@@ -17,6 +18,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { NewproductComponent } from './components/newproduct/newproduct.component';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { ChangeProductComponent } from './components/change-product/change-product.component';
+import { NewOrderComponent } from './components/new-order/new-order.component';
 
 
 
@@ -28,7 +30,8 @@ import { ChangeProductComponent } from './components/change-product/change-produ
     LoginComponent,
     RegistrationComponent,
     NewproductComponent,
-    ChangeProductComponent
+    ChangeProductComponent,
+    NewOrderComponent
   ],
   entryComponents: [LoginComponent],
   imports: [
@@ -59,6 +62,7 @@ import { ChangeProductComponent } from './components/change-product/change-produ
     {provide: LOCALE_ID, useValue: 'pt-BR'},
     AuthService,
     ProductService,
+    OrderService,
     Http
   ],
   bootstrap: [AppComponent]

@@ -63,13 +63,10 @@ export class ChangeProductComponent implements OnInit {
   }
 
   loadProductForm(){
-    console.log("LOAD PRODUCT :::: "this.selectedProduct);
-
     this.name.setValue(this.selectedProduct.name);
     this.description.setValue(this.selectedProduct.description);
     this.price.setValue(this.selectedProduct.price);
     this.id.setValue(this.selectedProduct.id);
-
   }
 
   getErrorMessageName() {
