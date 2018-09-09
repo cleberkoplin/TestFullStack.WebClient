@@ -23,6 +23,7 @@ export class SearchOrderComponent implements OnInit {
   });
 
   listOrder;
+  listDetail;
 
   constructor(private orderService: OrderService) { }
 
@@ -43,6 +44,14 @@ export class SearchOrderComponent implements OnInit {
       }
     );
 
+  }
+
+  openOrder(id){
+    this.orderService.getDetails(id).subscribe(
+      res => {
+        this.listDetail = res;
+      }
+    );
   }
 
 }

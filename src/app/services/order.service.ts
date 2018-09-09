@@ -21,4 +21,8 @@ export class OrderService extends BaseConnection{
         return this.getWith("orders", JSON.parse(JSON.stringify(filterOrderRequest)));
     }
 
+    getDetails(id: string): Observable<any>{
+        return this.get("orders/"+ id);
+    }
+
 }

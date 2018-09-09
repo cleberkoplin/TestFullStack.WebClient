@@ -32,7 +32,7 @@
 
   <div *ngFor="let order of listOrder">
     <mat-accordion>
-      <mat-expansion-panel>
+      <mat-expansion-panel (opened)="openOrder(order.id)">
         <mat-expansion-panel-header>
           <mat-panel-title>
             Pedido Realizado
@@ -42,16 +42,16 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
         
-        <div *ngFor="let item of listOrder.Items">
-          <mat-form-field>
-            <label>{{item.Product.Name}}</label>
-          </mat-form-field>
-          <mat-form-field>
-            <label>{{item.Quantity}}</label>  
-          </mat-form-field>
-          <mat-form-field>
-            <label>{{item.Price}}</label>  
-          </mat-form-field>
+        <div *ngFor="let item of listDetail">
+          <div>
+            <label>Produto: {{item.productName}}</label>
+          </div>
+          <div>
+            <label>Quantidade: {{item.quantity}}</label>  
+          </div>
+          <div>
+            <label>Valor: {{item.price}}</label> 
+          </div>
         </div>
 
       </mat-expansion-panel>
