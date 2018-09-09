@@ -12,13 +12,14 @@ import {HttpModule} from '@angular/http';
 import { LoginComponent } from './components/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatFormFieldModule, MatInputModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatSelectModule, MatDividerModule} from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, MatSelectModule, MatDividerModule, MatDatepickerModule, MatExpansionModule, MatNativeDateModule} from '@angular/material';
 import { RouterModule } from '@angular/router';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { NewproductComponent } from './components/newproduct/newproduct.component';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { ChangeProductComponent } from './components/change-product/change-product.component';
 import { NewOrderComponent } from './components/new-order/new-order.component';
+import { SearchOrderComponent } from './components/search-order/search-order.component';
 
 
 
@@ -31,7 +32,8 @@ import { NewOrderComponent } from './components/new-order/new-order.component';
     RegistrationComponent,
     NewproductComponent,
     ChangeProductComponent,
-    NewOrderComponent
+    NewOrderComponent,
+    SearchOrderComponent
   ],
   entryComponents: [LoginComponent],
   imports: [
@@ -50,6 +52,9 @@ import { NewOrderComponent } from './components/new-order/new-order.component';
     CurrencyMaskModule,
     MatSelectModule,
     MatDividerModule,
+    MatDatepickerModule,
+    MatExpansionModule,
+    MatNativeDateModule,
     RouterModule.forRoot([
       { path: "", component: LoginComponent}
     ])

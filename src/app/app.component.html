@@ -29,6 +29,7 @@
     <div class="content-wrapper">
 
       <div *ngIf="showHome()">
+        <mat-card class="panel-fit-center">
           <button mat-button [matMenuTriggerFor]="products">Produtos</button>
           <mat-menu #products="matMenu">
             <button mat-menu-item (click)="contentBody = 'newProducts'">Novo Produto</button>
@@ -41,6 +42,8 @@
             <button mat-menu-item (click)="contentBody = 'searchOrder'">Pesquisar Pedido</button>
           </mat-menu>
 
+          <mat-divider></mat-divider>
+
           <div *ngIf="contentBody == 'newProducts'">
             <app-newproduct></app-newproduct>
           </div>
@@ -51,8 +54,9 @@
               <app-new-order></app-new-order>
           </div>
           <div *ngIf="contentBody == 'searchOrder'">
-              Pesquisar Pedido
+              <app-search-order></app-search-order>
           </div>
+        </mat-card>
       </div>  
 
       <div *ngIf="!showHome()">

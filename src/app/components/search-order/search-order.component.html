@@ -1,0 +1,60 @@
+<div class="row m-5">
+    <label>Filtro</label>
+</div>
+<div class="row">
+  <form [formGroup]="searchOrderForm" (click)="submit($event)">
+    <mat-form-field class="p-2">
+      <input matInput currencyMask placeholder="Valor Inicial" [formControl]="priceStart"  [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+    </mat-form-field>
+    <mat-form-field class="p-2">
+      <input matInput currencyMask placeholder="Valor Final" [formControl]="priceEnd"  [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+    </mat-form-field>
+    <mat-form-field class="p-2">
+      <input matInput [matDatepicker]="dateStartPicker" [formControl]="dateStart" placeholder="Data Inicial">
+      <mat-datepicker-toggle matSuffix [for]="dateStartPicker"></mat-datepicker-toggle>
+      <mat-datepicker #dateStartPicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="p-2">
+      <input matInput [matDatepicker]="dateEndPicker" [formControl]="dateEnd" placeholder="Data Final">
+      <mat-datepicker-toggle matSuffix [for]="dateEndPicker"></mat-datepicker-toggle>
+      <mat-datepicker #dateEndPicker></mat-datepicker>
+    </mat-form-field>
+    <button mat-button type="submit">Consultar</button>
+  </form>
+</div>
+
+<mat-divider class="m-4"></mat-divider>
+
+<div class="row m-5">
+
+  <label>Pedidos Encontrados</label>
+
+
+  <div *ngFor="let order of listOrder">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Pedido Realizado
+          </mat-panel-title>
+          <mat-panel-description>
+            {{order.price}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        
+        <div *ngFor="let item of listOrder.Items">
+          <mat-form-field>
+            <label>{{item.Product.Name}}</label>
+          </mat-form-field>
+          <mat-form-field>
+            <label>{{item.Quantity}}</label>  
+          </mat-form-field>
+          <mat-form-field>
+            <label>{{item.Price}}</label>  
+          </mat-form-field>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
