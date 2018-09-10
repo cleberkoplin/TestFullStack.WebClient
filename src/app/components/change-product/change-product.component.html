@@ -1,4 +1,4 @@
-<mat-form-field>
+<mat-form-field class="p-5">
   <mat-select placeholder="Escolha um Produto" [(ngModel)]="selectedProduct" (selectionChange)="loadProductForm($event)" >
     <mat-option *ngFor="let product of productList" [value]="product">
       {{product.name}}

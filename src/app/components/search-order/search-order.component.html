@@ -29,9 +29,8 @@
 
   <label>Pedidos Encontrados</label>
 
-
-  <div *ngFor="let order of listOrder">
-    <mat-accordion>
+  <mat-accordion class="m-3">
+    <div *ngFor="let order of listOrder">
       <mat-expansion-panel (opened)="openOrder(order.id)">
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -55,6 +54,6 @@
         </div>
 
       </mat-expansion-panel>
-    </mat-accordion>
-  </div>
+    </div>
+  </mat-accordion>
 </div>

@@ -48,7 +48,7 @@ export abstract class BaseConnection {
             headers = headers.append('token', localStorage.getItem('token'));
         }
         
-        return this.http.put(URL_API + '/' + method, object)
+        return this.http.put(URL_API + '/' + method, object, {headers: headers})
         .pipe(map(res => res), catchError(ErrorHandler.handleError));
     }
 }

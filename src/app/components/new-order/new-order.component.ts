@@ -15,9 +15,10 @@ export class NewOrderComponent implements OnInit {
   productIdList : number[];
   productList : Product[];
 
-  price = new FormControl('');
+  price = new FormControl({ value: '', disabled: true });
   quantity = new FormControl('');
   selectedProduct = new FormControl('');
+  finishOrderDisabled = true;
 
   newOrderForm = new FormGroup({
     price: this.price,
@@ -36,6 +37,7 @@ export class NewOrderComponent implements OnInit {
   }
 
   addProduct(){
+    this.finishOrderDisabled = false;
     for (var i=0; i < this.quantity.value; i++){
       this.productIdList.push(this.selectedProduct.value.id);
     }
