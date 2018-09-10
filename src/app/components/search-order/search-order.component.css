@@ -1,0 +1,12 @@
+.input-one-line{
+    width: 150px;
+    text-align: left !important;
+}
+
+.bold-text{
+    font-weight: 600;
+}
+
+.bold-text-light{
+    font-weight: 500;
+}

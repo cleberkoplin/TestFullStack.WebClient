@@ -34,10 +34,10 @@
       <mat-expansion-panel (opened)="openOrder(order.id)">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Pedido Realizado
+            Pedido Realizado &nbsp; - &nbsp;&nbsp;&nbsp;&nbsp;
           </mat-panel-title>
-          <mat-panel-description>
-            {{order.price}}
+          <mat-panel-description>            
+              <label class="bold-text">Total <input matInput [disabled]="true" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" value="{{order.price}}" class="input-one-line"></label>
           </mat-panel-description>
         </mat-expansion-panel-header>
         
@@ -49,7 +49,7 @@
             <label>Quantidade: {{item.quantity}}</label>  
           </div>
           <div>
-            <label>Valor: {{item.price}}</label> 
+              <label>Valor: <label class="bold-text-light"><input matInput [disabled]="true" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" value="{{item.price}}" class="input-one-line"></label></label>
           </div>
         </div>
 
